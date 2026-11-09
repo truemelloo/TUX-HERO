@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TUX HERO</title><link rel="stylesheet" href="css/master.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Bangers&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="game-canvas">
+    <video class="show-background-video" id="original-show-video" muted loop playsinline preload="metadata" aria-hidden="true"><source src="assets/show-background.mp4" type="video/mp4"></video>
+    <div class="game-display">
+      <div class="header"><h1 class="title"><img class="game-header-logo" src="assets/tux-hero-logo.png" alt="TUX HERO"></h1><div class="professional-links"></div></div>
+      <div class="game-details"><div class="game-details-left"><h1 class="score">Pontuação: 0</h1><h1 class="max-streak">Maior sequência: 0</h1></div><div class="game-details-right"><h1 class="multiplier">Multiplicador: 1X</h1><h1 class="streak">Sequência: 0</h1></div></div>
+      <div class="game-start"><h1 class="start">PREPARE-SE!</h1></div>
+      <div class="instructions hidden"><div class="close-instructions"><h1>X</h1><h2>(fechar instruções)</h2></div><ul class="instructions-text"><h1>COMO JOGAR</h1><li>Quando as notas chegarem aos círculos, pressione a tecla da cor correspondente.</li><li>Acertos consecutivos aumentam seu combo e multiplicador.</li><li>Controles: A, S, D, F, G.</li></ul><ul class="letters"><li class="green">A</li><li class="red">S</li><li class="yellow">D</li><li class="blue">F</li><li class="orange">G</li></ul></div>
+      <div class="game-progress"><input class="rock-input" type="range" min="-20" max="20" value="0" aria-label="Medidor de Rock"><img id="powermusic-sprite" src="assets/barrinhas/barra0.png" alt="PowerMusic — medidor de Rock"></div>
+    </div>
+    <nav class="game-control-panel" aria-label="Controles da apresentação"><span class="control-caption">TUX HERO <em>· CONTROLES AO VIVO</em></span><button class="open-instructions" type="button" data-icon="?">COMO JOGAR</button><button class="look-around" type="button" data-icon="◉">OLHAR AO REDOR</button><button class="play-pause hidden" type="button" data-icon="Ⅱ">PAUSAR JOGO</button><button class="mute" type="button" data-icon="♫">SILENCIAR</button><button class="exit-game" type="button" data-icon="↩">VOLTAR AO MENU</button></nav><div id="tux-control-modal" class="tux-control-modal hidden" role="dialog" aria-modal="true" aria-labelledby="tux-modal-title"><div class="tux-dialog"><h2 id="tux-modal-title"></h2><div id="tux-modal-body"></div><div id="tux-modal-actions"></div></div></div><div id="tux-countdown" class="tux-countdown hidden" aria-live="assertive"></div>
+  </div>
+  <div id="song"></div><section id="custom-game" class="screen hidden" aria-label="Música importada"><video class="show-background-video" id="custom-show-video" muted loop playsinline preload="metadata" aria-hidden="true"><source src="assets/show-background.mp4" type="video/mp4"></video><div class="custom-hud"><span id="custom-track"></span><span id="custom-score">PONTUAÇÃO 0</span><span id="custom-combo">COMBO 0</span><button id="custom-pause">PAUSAR / ESC</button></div><canvas id="custom-canvas"></canvas><div id="custom-pause-menu" class="custom-modal hidden"><h1>JOGO PAUSADO</h1><button id="custom-resume">CONTINUAR</button><button id="custom-restart">REINICIAR</button><button id="custom-exit">VOLTAR AO MENU</button></div><div id="custom-results" class="custom-modal hidden"></div></section>
+  <div class="look-around-instructions hidden"><h1>CLIQUE E ARRASTE PARA OLHAR</h1></div>
+
+  <section id="intro-screen" class="screen intro-screen" aria-label="Abertura Tux Hero">
+    <video id="intro-video" autoplay muted playsinline preload="auto"><source src="assets/tux-hero-intro.mp4" type="video/mp4"></video>
+    <div class="intro-shade"></div><img class="intro-logo" src="assets/tux-hero-logo.png" alt="TUX HERO">
+    <div class="intro-bottom"><span>APRESENTA</span><strong>TUX HERO</strong><small>PRESSIONE ENTER OU ESC PARA PULAR</small></div>
+    <div class="intro-skip">ENTER / ESC — PULAR</div>
+  </section>
+
+  <section id="menu-screen" class="screen menu-screen hidden" aria-label="Menu principal">
+    <div class="menu-backdrop"></div><img class="menu-logo" src="assets/tux-hero-logo.png" alt="Logotipo oficial TUX HERO">
+    <div class="menu-layout"><nav id="main-menu" class="main-menu" aria-label="Menu principal">
+      <button data-action="quick" class="menu-option selected">JOGO RÁPIDO <span>▶</span></button>
+      <button data-action="career" class="menu-option">MODO CARREIRA</button>
+      <button data-action="multiplayer" class="menu-option">MULTIJOGADOR</button>
+      <button data-action="songs" class="menu-option">SELECIONAR MÚSICA</button>
+      <button data-action="options" class="menu-option">CONFIGURAÇÕES</button>
+      <button data-action="credits" class="menu-option">CRÉDITOS</button>
+    </nav></div>
+    <footer>▲ ▼ NAVEGAR &nbsp; ENTER SELECIONAR <span>© 2026 Desenvolvido por Ana Clara Mello.</span></footer>
+  </section>
+
+  <section id="sub-screen" class="screen sub-screen hidden"><div class="sub-panel"><button id="back-button" class="back-button">← VOLTAR</button><div id="sub-content"></div></div></section>
+  <script src="vendor/three.js"></script><script src="lib/tux-visuals.js"></script><script src="lib/original-chart-data.js"></script><script src="lib/tux-unified-3d.js"></script><script src="lib/custom-songs.js"></script><script src="lib/tux-library/catalog.js"></script><script src="lib/bundle.js"></script><script src="lib/tux-hero-ui.js"></script><script src="lib/show-background.js"></script><script src="lib/tux-control-deck.js"></script><script src="lib/tux-interface-ptbr.js"></script><script src="lib/powermusic-sprites.js"></script>
+</body></html>

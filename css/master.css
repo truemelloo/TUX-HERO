@@ -1,0 +1,455 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+#game-canvas {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-details {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 20px 20px 20px;
+}
+
+.game-details-right, .game-details-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 195px;
+  height: 120px;
+  padding: 15px 20px;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, .75);
+}
+
+.score, .streak, .multiplier, .max-streak {
+  font-size: 28px;
+}
+
+.game-progress  {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 20px;
+  color: white;
+  background: rgba(0, 0, 0, .75);
+}
+
+.rock-input {
+  background: transparent;
+}
+
+.rock-input::-webkit-slider-runnable-track {
+  background: white;
+}
+
+.red .rock-input::-webkit-slider-runnable-track {
+  background: red;
+}
+
+.green .rock-input::-webkit-slider-runnable-track {
+  background: green;
+}
+
+.yellow .rock-input::-webkit-slider-runnable-track {
+  background: yellow;
+}
+
+#song {
+  display: none;
+}
+
+.game-control-panel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  font-weight: 700;
+}
+
+.game-control-panel button {
+  width: 120px;
+  height: 25px;
+  border-radius: 7px;
+  margin-bottom: 5px;
+  border: 1px solid black;
+  background: #ffffff;
+}
+
+.game-control-panel button:hover {
+  background: #cfcfcf;
+  cursor: pointer;
+}
+
+.header {
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, .75);
+  /*background: #818181;*/
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  border-bottom: 1px solid #3b3b3b;
+}
+
+.professional-links {
+  display: flex;
+  justify-content: flex-end;
+  width: 100px;
+}
+
+.creator {
+  width: 100px;
+}
+
+.creator span {
+  font-weight: 500;
+}
+
+.title {
+  font-family: 'Bangers', sans-serif;
+  letter-spacing: 2.5px;
+}
+
+.header h1, .header p {
+  margin: 0;
+  margin-bottom: 5px;
+  padding: 0 20px;
+}
+
+.professional-links img {
+  height: 30px;
+  width: 30px;
+  padding-left: 7.5px;
+  padding-right: 7.5px;
+  transform: translateY(2.5px);
+}
+
+.game-start, .look-around-instructions {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-shadow: 3px 3px black;
+  letter-spacing: 1.5px;
+  z-index: 20;
+}
+
+.look-around-instructions {
+  text-align: center;
+}
+
+.instructions {
+  position: absolute;
+  background: rgba(0, 0, 0, .90);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.close-instructions {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.close-instructions h1:hover {
+  cursor: pointer;
+}
+
+.close-instructions h1 {
+  font-size: 50px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.close-instructions h2 {
+  font-size: 20px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.instructions-text {
+  color: white;
+  font-size: 18px;
+  width: 350px;
+  text-align: justify;
+}
+
+.instructions-text li {
+  margin-bottom: 5px;
+}
+
+.instructions .letters {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style: none;
+  font-size: 25px;
+  font-weight: 700;
+  width: 325px;
+  color: black;
+}
+
+.instructions .letters li {
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.instructions .green {
+  background: green;
+}
+
+.instructions .red {
+  background: red;
+}
+
+.instructions .yellow {
+  background: yellow;
+}
+
+.instructions .blue {
+  background: blue;
+}
+
+.instructions .orange {
+  background: orange;
+}
+
+/* LEAVE AT BOTTOM OF CSS FILE */
+.hidden {
+  display: none;
+}
+
+
+/* VISUAL GUITAR HERO - pista arcade */
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+}
+#game-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+}
+#game-canvas canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.game-display {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.header, .game-details, .game-control-panel, .game-progress,
+.game-start, .instructions {
+  pointer-events: auto;
+}
+.header {
+  background: linear-gradient(180deg, rgba(0,0,0,.9), rgba(0,0,0,.25));
+  border-bottom: 1px solid rgba(75,100,255,.35);
+}
+.title {
+  color: #fff;
+  text-shadow: 0 0 8px #345cff, 0 0 20px #142cff;
+}
+.game-details-left, .game-details-right {
+  background: rgba(0,0,0,.58);
+  border: 1px solid rgba(67,91,255,.38);
+  box-shadow: 0 0 18px rgba(28,55,255,.16);
+  backdrop-filter: blur(5px);
+}
+.score, .streak, .multiplier, .max-streak {
+  font-size: clamp(15px, 2vw, 25px);
+}
+.game-control-panel button {
+  color: white;
+  background: rgba(8,10,30,.88);
+  border: 1px solid #405cff;
+  box-shadow: 0 0 10px rgba(45,75,255,.3);
+}
+.game-control-panel button:hover {
+  color: #fff;
+  background: #182b82;
+}
+.game-start {
+  text-align: center;
+}
+.start {
+  color: #fff;
+  text-shadow: 0 0 8px #345cff, 0 0 22px #345cff, 2px 2px #000;
+}
+.game-progress {
+  border: 1px solid rgba(80,100,255,.4);
+  background: rgba(0,0,0,.72);
+}
+@media (max-width: 700px) {
+  .game-details { padding: 62px 8px 8px; }
+  .game-details-left, .game-details-right {
+    width: auto;
+    height: auto;
+    padding: 8px;
+    border-radius: 10px;
+  }
+  .game-details h1 { margin: 3px 0; }
+  .game-control-panel { padding: 8px; }
+  .game-control-panel button { width: 105px; }
+}
+
+/* TUX HERO — arcade front-end */
+html,body{width:100%;height:100%;overflow:hidden;background:#030107;color:#fff}#game-canvas{position:fixed;inset:0;z-index:1}#game-canvas canvas{display:block}.screen{position:fixed;inset:0;z-index:100;overflow:auto;background:#05020b}.hidden{display:none!important}
+.intro-screen{display:grid;place-items:center;background:#000}.intro-screen video{position:absolute;width:100%;height:100%;object-fit:contain;background:#000}.intro-shade{position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.85),transparent 48%,rgba(0,0,0,.2))}.intro-logo{position:relative;width:min(72vw,850px);max-height:72vh;object-fit:contain;filter:drop-shadow(0 0 28px #a500ff);animation:logo-arrive 1.3s cubic-bezier(.2,.8,.2,1) both}.intro-bottom{position:absolute;bottom:7%;display:flex;flex-direction:column;align-items:center;gap:5px;letter-spacing:4px;text-shadow:0 2px 12px #000}.intro-bottom span{font-size:11px;color:#e8caff}.intro-bottom strong{font:38px Bangers;letter-spacing:7px;color:#fff}.intro-bottom small,.intro-skip{font-size:10px;letter-spacing:2px;color:#e2c5ff}.intro-skip{position:absolute;right:25px;top:22px;opacity:.85}@keyframes logo-arrive{from{opacity:0;transform:scale(.82) translateY(30px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.menu-screen{background:radial-gradient(ellipse at 72% 42%,#37105d 0,#13071f 35%,#030207 76%)}.menu-backdrop{position:absolute;inset:0;opacity:.22;background:repeating-linear-gradient(115deg,transparent 0 90px,rgba(255,0,200,.16) 91px 93px,transparent 94px 180px),linear-gradient(90deg,#000 0%,transparent 55%,#12051d)}.menu-logo{position:relative;display:block;width:min(43vw,520px);height:32vh;object-fit:contain;margin:2vh auto 0;filter:drop-shadow(0 0 18px rgba(207,0,255,.45));animation:logo-arrive .8s both}.menu-layout{position:relative;display:flex;align-items:center;justify-content:center;gap:clamp(35px,9vw,150px);height:54vh}.main-menu{display:flex;flex-direction:column;gap:7px;width:min(390px,43vw)}.menu-option{position:relative;text-align:left;border:1px solid transparent;background:linear-gradient(90deg,rgba(30,10,45,.9),rgba(10,5,20,.45));padding:12px 22px;color:#cbb9d7;font:26px Bangers;letter-spacing:2px;cursor:pointer;transition:.16s;clip-path:polygon(0 0,96% 0,100% 50%,96% 100%,0 100%)}.menu-option:hover,.menu-option.selected{color:#fff;background:linear-gradient(90deg,#7800a7,#250a3b);border-color:#f05bff;text-shadow:0 0 12px #ff6bfa;transform:translateX(10px);box-shadow:0 0 18px #a900d455}.menu-option span{float:right;color:#ff70ef}.menu-side{width:270px;text-align:center;color:#bba4c9}.side-label{font:28px Bangers;letter-spacing:3px;color:#ffb4ff}.menu-side p{font-size:10px;letter-spacing:2px}.equalizer{height:100px;display:flex;align-items:center;justify-content:center;gap:7px}.equalizer i{width:10px;height:30%;background:linear-gradient(#ff8cff,#7b20ff);box-shadow:0 0 12px #dc4bff;animation:eq .7s ease-in-out infinite alternate}.equalizer i:nth-child(2n){animation-delay:.2s}.equalizer i:nth-child(3n){animation-delay:.4s}@keyframes eq{to{height:95%}}.menu-screen footer{position:absolute;bottom:20px;left:30px;right:30px;color:#9c83ad;font-size:10px;letter-spacing:2px}.menu-screen footer span{float:right}.sub-screen{display:grid;place-items:center;background:radial-gradient(ellipse,#260d3a,#050208 70%)}.sub-panel{width:min(760px,90vw);max-height:86vh;overflow:auto;padding:30px;background:rgba(9,4,16,.94);border:1px solid #a33ac4;box-shadow:0 0 45px #8500ad55}.sub-panel h1{font:42px Bangers;letter-spacing:3px;color:#ffb2ff;margin:10px 0 20px}.sub-panel p,.sub-panel label{color:#d5c6df}.sub-panel button,.sub-panel select,.sub-panel input{font:16px Roboto;background:#1c0d29;color:white;border:1px solid #a64bc4;padding:10px 14px;margin:6px;cursor:pointer}.sub-panel button:hover{background:#6c1688}.sub-panel .back-button{float:right;font-size:12px}.song-card{border:1px solid #603477;padding:16px;margin:10px 0;background:#150a20}.song-card strong{display:block;font-size:20px;color:#fff}.muted-note{font-size:12px;color:#b69ac7!important}.setting-row{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #382044;padding:10px 0}.game-display .header{background:rgba(8,2,15,.86);border-color:#9224ad}.game-display .title{color:#f2c6ff}.game-details-left,.game-details-right,.game-progress{background:rgba(8,2,15,.88);border:1px solid #6d3186}.game-control-panel button{background:#210c31;color:#fff;border:1px solid #a94cc6}.game-control-panel button:hover{background:#70208b}
+@media(max-width:700px){.menu-logo{width:75vw;height:24vh}.menu-layout{height:auto;min-height:60vh;gap:0}.main-menu{width:82vw}.menu-option{font-size:23px;padding:10px 16px}.menu-side{display:none}.menu-screen footer{font-size:8px;left:12px;right:12px}.intro-logo{width:95vw}.game-details{padding:55px 6px 6px}.game-details-left,.game-details-right{width:auto;height:auto;padding:6px}.score,.streak,.multiplier,.max-streak{font-size:15px}}
+.lane-hit{position:fixed;z-index:20;bottom:0;left:50%;width:22vw;height:22vh;transform:translateX(-50%);pointer-events:none;opacity:0;animation:lane-hit .24s ease-out}.lane-hit.green{background:radial-gradient(ellipse at bottom,#00ff6677,transparent 70%)}.lane-hit.red{background:radial-gradient(ellipse at bottom,#ff174477,transparent 70%)}.lane-hit.yellow{background:radial-gradient(ellipse at bottom,#fff00077,transparent 70%)}.lane-hit.blue{background:radial-gradient(ellipse at bottom,#168cff77,transparent 70%)}.lane-hit.orange{background:radial-gradient(ellipse at bottom,#ff8a0077,transparent 70%)}@keyframes lane-hit{20%{opacity:1}100%{opacity:0;transform:translateX(-50%) scale(1.5)}}.intro-screen.fade-out{animation:intro-out .45s ease forwards}@keyframes intro-out{to{opacity:0;transform:scale(1.025)}}
+
+/* TUX HERO — menu com imagem fornecida */
+.menu-screen{background:#333 url('../assets/menu-background.jpg') center center / cover no-repeat}.menu-backdrop{background:linear-gradient(90deg,rgba(0,0,0,.76) 0%,rgba(0,0,0,.4) 42%,transparent 75%);opacity:1}.menu-logo{width:min(39vw,450px);height:27vh;margin:1vh 0 0 5vw}.menu-layout{justify-content:flex-start;padding-left:6vw;height:62vh}.main-menu{width:min(350px,42vw)}.menu-option{background:rgba(12,8,20,.8);color:white;backdrop-filter:blur(5px)}.menu-screen footer{color:white;text-shadow:0 2px 5px #000}.song-toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.song-toolbar input{flex:1;min-width:160px}.song-tabs{display:flex;flex-wrap:wrap}.song-tabs button.active{background:#8525a6}.song-card .song-actions{display:flex;flex-wrap:wrap;align-items:center}.song-card p{margin:8px 0}.song-card button{font-size:13px}.song-card input{max-width:90%}.song-card label{display:inline-block}.custom-hud{position:absolute;top:0;left:0;right:0;z-index:2;display:flex;align-items:center;justify-content:space-around;background:#12081c;padding:10px;gap:8px}.custom-hud button{background:#69238b;color:white;border:1px solid #f8b4ff;padding:9px;cursor:pointer}#custom-game{background:radial-gradient(ellipse at top,#542077,#08020d 70%);overflow:hidden}#custom-canvas{display:block;width:100%;height:100%}.custom-modal{position:absolute;z-index:4;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:15px;background:rgba(0,0,0,.88)}.custom-modal button{background:#4c126e;border:1px solid #c987ff;color:white;padding:14px 24px;cursor:pointer}.custom-modal h1{font:48px Bangers}.custom-modal p{max-width:600px;text-align:center}.muted-note{line-height:1.5}.social-link{display:inline-flex;align-items:center;gap:8px;color:#e5c4ff;margin:8px}.social-link img{width:24px;height:24px}.back-button{position:sticky;top:0;z-index:5}
+@media(max-width:700px){.menu-screen{background-position:58% center}.menu-backdrop{background:linear-gradient(90deg,rgba(0,0,0,.8),rgba(0,0,0,.2))}.menu-logo{width:70vw;height:23vh;margin:2vh 0 0 5vw}.menu-layout{padding-left:5vw;align-items:flex-start;min-height:unset;height:auto}.main-menu{width:min(82vw,350px)}.menu-option{font-size:21px}.custom-hud{font-size:11px}.sub-panel{padding:14px}}
+
+/* Show video is decorative and never intercepts gameplay input. */
+#game-canvas{background:transparent!important;isolation:isolate}
+#game-canvas>.show-background-video{z-index:-1}
+.show-background-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;pointer-events:none;background:transparent;display:block}
+#game-canvas>canvas{position:relative;z-index:0;background:transparent!important}
+#game-canvas>.game-display,#game-canvas>.game-control-panel{z-index:2}
+#custom-game{background:transparent!important;isolation:isolate}
+#custom-game>.show-background-video{z-index:0}
+#custom-canvas{position:relative;z-index:1;background:transparent!important}
+#custom-game>.custom-hud{z-index:3}
+
+/* TUX HERO / LIVE CONTROL DECK */
+#game-canvas .game-control-panel{position:absolute;z-index:30;bottom:clamp(10px,2vh,24px);left:clamp(10px,2vw,26px);display:flex;flex-direction:column;gap:5px;width:clamp(164px,15vw,218px);padding:12px;background:linear-gradient(140deg,rgba(12,5,23,.93),rgba(31,9,46,.83));border:1px solid #a75ed1;border-radius:13px;box-shadow:0 8px 35px #000a,inset 0 0 20px #a15bf015;backdrop-filter:blur(12px)}
+#game-canvas .control-caption{color:#f2c6ff;font:19px Bangers,cursive;letter-spacing:2px;padding:2px 7px 7px;border-bottom:1px solid #70428a}#game-canvas .control-caption em{font:9px Roboto,sans-serif;color:#a98cba;font-style:normal;letter-spacing:1px}
+#game-canvas .game-control-panel button{box-sizing:border-box;width:100%;height:auto;min-height:35px;margin:0;padding:8px 9px;display:flex;align-items:center;gap:9px;text-align:left;border:1px solid #65367f;border-radius:5px;background:linear-gradient(100deg,#281136e8,#13091ee8);color:#f7e8ff;font:15px Bangers,cursive;letter-spacing:1.2px;cursor:pointer;transition:transform .15s,border-color .15s,box-shadow .15s,background .15s}
+#game-canvas .game-control-panel button:before{content:attr(data-icon);display:grid;place-items:center;flex:none;width:24px;height:24px;border-radius:4px;background:#4c2165;color:#f6cbff;font:16px Arial,sans-serif}
+#game-canvas .game-control-panel button:hover,#game-canvas .game-control-panel button:focus-visible,#game-canvas .game-control-panel button[aria-pressed=true]{outline:none;transform:translateX(3px);border-color:#e29aff;background:#52226a;box-shadow:0 0 15px #ba48f355}
+#game-canvas .game-control-panel button:active{transform:translateX(2px) scale(.97)}
+#game-canvas .game-control-panel button.hidden{display:none!important}
+.tux-control-modal{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:18px;background:#06020acb;backdrop-filter:blur(7px)}.tux-control-modal.hidden,.tux-countdown.hidden{display:none!important}
+.tux-dialog{box-sizing:border-box;width:min(520px,94vw);max-height:90vh;overflow:auto;padding:clamp(20px,4vw,34px);background:linear-gradient(145deg,#23102f,#090610);border:2px solid #b36bdd;border-radius:12px;box-shadow:0 0 60px #a52ad955;animation:tuxDialogIn .2s ease-out}
+.tux-dialog h2{font:clamp(30px,5vw,45px) Bangers,cursive;letter-spacing:2px;color:#f3b6ff;margin:0 0 14px}.tux-dialog p{color:#dfcbe9;line-height:1.6}.tux-dialog .lane-keys{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}.tux-dialog kbd{display:inline-grid;place-items:center;width:44px;height:48px;border-radius:7px;background:#30163c;border:2px solid #ad6fd4;color:#fff;font:bold 22px Bangers,cursive}.tux-dialog #tux-modal-actions{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;margin-top:24px}.tux-dialog button{border:1px solid #b778dd;border-radius:6px;background:#542273;color:white;font:19px Bangers,cursive;padding:11px 17px;cursor:pointer}.tux-dialog button:hover,.tux-dialog button:focus-visible{background:#853ba6;outline:2px solid #f2b5ff}.tux-countdown{position:fixed;inset:0;z-index:90;display:grid;place-items:center;background:#08020c99;color:#fff;font:clamp(80px,15vw,180px) Bangers,cursive;text-shadow:0 0 35px #b62be9;pointer-events:none}@keyframes tuxDialogIn{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
+@media(max-width:700px){#game-canvas .game-control-panel{width:145px;padding:7px;gap:3px;bottom:7px;left:7px}#game-canvas .game-control-panel button{font-size:12px;min-height:30px;padding:4px}#game-canvas .control-caption{font-size:15px}}
+
+/* TUX HERO — atualização visual isolada: controles e janelas (PT-BR) */
+#game-canvas .game-control-panel{width:clamp(170px,15vw,220px);gap:7px;padding:13px;border:1px solid #8e69a5;border-radius:9px;background:linear-gradient(140deg,rgba(26,22,32,.95),rgba(8,7,12,.94));box-shadow:0 14px 34px #000b,inset 0 1px #ffffff27,0 0 0 3px #100c18;backdrop-filter:blur(9px)}
+#game-canvas .game-control-panel button,.tux-dialog button,.custom-modal button,.sub-panel button,.menu-option{position:relative;overflow:hidden;color:#f7edff;border:1px solid #826493;border-bottom:2px solid #33213e;border-radius:5px;background:linear-gradient(165deg,#59515f 0%,#2c2832 12%,#17141d 46%,#0b0a10 53%,#302539 100%);box-shadow:inset 0 1px 0 #ffffff55,inset 0 -3px 0 #0008,0 3px 8px #0009;text-shadow:0 1px 2px #000;transition:transform .15s,box-shadow .15s,border-color .15s,filter .15s}
+#game-canvas .game-control-panel button{min-height:42px;padding:8px 10px;letter-spacing:1.15px;font-size:15px}
+#game-canvas .game-control-panel button:before{width:27px;height:27px;border:1px solid #9672aa;border-radius:5px;background:linear-gradient(145deg,#675477,#22152d 55%,#110d19);box-shadow:inset 0 1px #fff5,0 2px 4px #0008;color:#f6d8ff}
+#game-canvas .game-control-panel button:hover,#game-canvas .game-control-panel button:focus-visible,.tux-dialog button:hover,.custom-modal button:hover,.sub-panel button:hover,.menu-option:hover,.menu-option.selected{background:linear-gradient(155deg,#725084,#34213f 32%,#17121f 60%,#523061);border-color:#d5a0f6;box-shadow:inset 0 1px #ffffff77,inset 0 -2px #13091b,0 0 17px #9f50d477,0 5px 13px #000a;color:#fff;outline:none}
+#game-canvas .game-control-panel button:active,.tux-dialog button:active,.custom-modal button:active,.sub-panel button:active{transform:translateY(2px) scale(.985);box-shadow:inset 0 3px 8px #000b}
+#game-canvas .control-caption{color:#e3c2f2;letter-spacing:1px}
+.tux-control-modal{background:rgba(2,1,6,.78);backdrop-filter:blur(9px)}
+.tux-dialog{position:relative;border:1px solid #ad84c1;border-radius:10px;background:linear-gradient(145deg,#34303b 0%,#17111e 16%,#0b0910 60%,#211629);box-shadow:inset 0 1px #fff5,0 0 0 5px #08050dc9,0 24px 70px #000d,0 0 35px #9850c84d}
+.tux-dialog:before{content:'';display:block;height:4px;margin:-12px 0 20px;background:linear-gradient(90deg,transparent,#b47ed3,#ead4ff,#b47ed3,transparent)}
+.tux-dialog h2{color:#f2d9ff;text-shadow:0 2px 0 #13051d,0 0 14px #9d49cb77}
+.tux-dialog p{font-size:15px;color:#e7dcea}.tux-dialog button,.custom-modal button{padding:12px 19px;font:19px Bangers,cursive;letter-spacing:1px}
+.custom-modal{background:rgba(4,2,9,.88);backdrop-filter:blur(8px)}.custom-modal h1{color:#efd3ff;text-shadow:0 0 20px #8f40bd}
+.sub-panel{border:1px solid #a783ba;border-radius:8px;background:linear-gradient(145deg,#24192d,#09070f 75%);box-shadow:inset 0 1px #fff3,0 18px 50px #000b}
+.sub-panel button{border-radius:5px}.menu-option{clip-path:none;transform:skewX(-5deg);border-radius:3px}.menu-option:hover,.menu-option.selected{transform:skewX(-5deg) translateX(8px)}
+@media(max-width:700px){#game-canvas .game-control-panel{width:145px;padding:7px;gap:4px}#game-canvas .game-control-panel button{font-size:12px;min-height:33px;padding:4px 6px}#game-canvas .game-control-panel button:before{width:22px;height:22px}}
+
+/* Correções pontuais: cabeçalho e PowerMusic, sem alterar a guitarra 3D. */
+.game-display .header .creator{display:none!important}
+.game-display .header .title{display:flex;align-items:center;justify-content:center;margin:0 auto!important;max-width:min(240px,35vw);height:65px;line-height:1!important;font-size:0!important;color:transparent!important;text-shadow:none!important}
+.game-header-logo{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 2px 5px #000a)}
+.game-progress{position:absolute!important;top:auto!important;left:auto!important;right:clamp(12px,2vw,28px)!important;bottom:clamp(12px,2vh,26px)!important;margin:0!important;z-index:5!important;min-width:107px!important;min-height:107px!important;width:107px!important;height:107px!important;background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important;overflow:visible!important}
+.game-progress .rock-input{position:absolute!important;width:1px!important;height:1px!important;opacity:0!important;pointer-events:none!important;left:0!important;top:0!important}
+.game-progress .rock-header{display:none!important}
+#powermusic-sprite{display:block;width:107px;height:107px;object-fit:contain;image-rendering:auto;pointer-events:none}
+
+/* Shared Three.js rhythm view: original fretboard geometry, two independent players */
+#tux-unified-game{position:fixed;inset:0;z-index:1100;background:#080510;overflow:hidden;color:white;font-family:Roboto,Arial,sans-serif}
+#tux-unified-game.hidden{display:none!important}
+#tux-unified-game:before{content:"";position:absolute;inset:0;background:linear-gradient(#08041466,#100521aa),url('../assets/menu-background.jpg') center/cover;opacity:.9}
+#unified-render{position:absolute;inset:0}#unified-render canvas{display:block}
+.unified-hud{position:absolute;top:0;left:0;right:0;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:8px 20px;background:#0a0614b8;gap:15px}
+.unified-hud img{width:135px;max-height:65px;object-fit:contain}.unified-hud button,#unified-overlay button{background:linear-gradient(#654078,#20122c);border:2px solid #bd85df;color:white;padding:10px 18px;cursor:pointer;font-weight:bold}
+#unified-players{position:absolute;z-index:2;top:85px;left:0;right:0;display:flex;justify-content:space-around;pointer-events:none}
+.unified-player{width:40%;text-align:center;display:flex;flex-direction:column;align-items:center;gap:3px;text-shadow:2px 2px 4px #000;font-size:14px}.unified-player strong{font-size:20px}.unified-rock img{height:75px;max-width:150px;object-fit:contain}
+#unified-overlay{position:absolute;inset:0;z-index:4;background:#090412b8;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;text-align:center}#unified-overlay.hidden{display:none}#unified-overlay h1{font-size:90px;color:#f6d6ff;text-shadow:0 0 24px #9d44d8}#unified-overlay h2{font-size:34px}
+@media(max-width:700px){.unified-hud img{width:85px}.unified-player{font-size:10px}.unified-player strong{font-size:13px}.unified-rock img{height:48px}}
+
+#tux-unified-game .unified-background-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:.65;display:block!important}#tux-unified-game:before{z-index:1;pointer-events:none;opacity:.24}#unified-render{z-index:1}
+
+/* HUD positioning fix: scoped to original gameplay only. */
+#game-canvas .game-display .game-details{top:0;left:0;right:0;box-sizing:border-box;padding:clamp(88px,10vh,116px) clamp(12px,2vw,28px) 0;z-index:4;align-items:flex-start;pointer-events:none}
+#game-canvas .game-display .game-details-left,#game-canvas .game-display .game-details-right{box-sizing:border-box;flex:0 1 auto;max-width:calc(50vw - 30px);height:auto;min-height:88px;pointer-events:none}
+#game-canvas .game-display .game-details h1{overflow-wrap:break-word;line-height:1.2;margin:5px 0;font-size:clamp(14px,1.5vw,22px)}
+#game-canvas .game-display .game-progress{position:absolute!important;top:auto!important;left:auto!important;right:clamp(12px,2vw,28px)!important;bottom:clamp(12px,2vh,26px)!important;margin:0!important;transform:none!important;z-index:5!important}
+@media(max-width:800px){#game-canvas .game-display .game-details{padding-top:82px;padding-left:10px;padding-right:10px}#game-canvas .game-display .game-details-left,#game-canvas .game-display .game-details-right{padding:8px 10px;max-width:44vw;min-height:70px}#game-canvas .game-display .game-details h1{font-size:clamp(13px,1.55vw,17px)}#game-canvas .game-display .game-progress{right:12px!important;bottom:12px!important}}
+
+/* Multijogador local: placas dos nomes alinhadas às duas pistas, sem alterar Jogo Rápido. */
+#tux-unified-game .unified-hud{justify-content:center;min-height:64px}
+#tux-unified-game .unified-hud img{position:absolute;left:50%;transform:translateX(-50%);width:clamp(95px,11vw,145px)}
+#tux-unified-game #unified-track{position:absolute;left:16px;top:18px;max-width:26%;font-size:12px}
+#tux-unified-game #unified-pause{position:absolute;right:16px;top:12px}
+#tux-unified-game #unified-players{top:clamp(76px,10vh,110px);justify-content:center;gap:clamp(16px,3vw,54px)}
+#tux-unified-game .unified-player{width:min(39vw,480px);max-width:480px}
+#tux-unified-game .unified-name{display:block;box-sizing:border-box;max-width:100%;min-width:48%;padding:7px 24px;border:2px solid #a76ac9;border-radius:7px;background:linear-gradient(160deg,#3e2355,#0e091b 70%);box-shadow:0 3px 0 #090410,0 0 15px #a250c355;text-align:center;overflow-wrap:anywhere;letter-spacing:1px}
+#tux-unified-game .unified-stats{background:#0d071cc9;padding:4px 10px;border-radius:5px}
+#tux-unified-game .unified-rock img{width:clamp(44px,6vw,80px);height:clamp(44px,6vw,80px);object-fit:contain}
+@media(max-width:800px){#tux-unified-game .unified-name{padding:5px 8px;font-size:13px}#tux-unified-game .unified-player{width:44vw;font-size:11px}#tux-unified-game #unified-track{font-size:10px;max-width:20%}}
+
+
+/* ===== TUX HERO — revisão visual 3D (multijogador): HUD alinhado às pistas, vídeo do palco visível ===== */
+/* O véu antigo (menu-background.jpg a 24%) escurecia/cobria o vídeo: troca por uma vinheta que mantém o centro limpo. */
+#tux-unified-game:before{background:radial-gradient(ellipse at 50% 48%,transparent 40%,#04010a8c 100%);opacity:1;z-index:1;pointer-events:none}
+#tux-unified-game .unified-background-video{opacity:.95}
+#tux-unified-game #unified-players{position:absolute;inset:0;top:0;left:0;right:0;bottom:0;display:block;gap:0;pointer-events:none;z-index:3}
+#tux-unified-game .unified-player{position:absolute;transform:translateX(-50%);width:auto;max-width:480px;box-sizing:border-box;align-items:center}
+#tux-unified-game .unified-name{min-width:60%;text-align:center}
+#tux-unified-game .unified-stats{white-space:nowrap;font-weight:700;letter-spacing:.4px}
+#tux-unified-game .unified-detail{background:#0d071cb0;padding:2px 8px;border-radius:4px;font-size:11px;letter-spacing:.6px}
+#tux-unified-game .unified-meter{position:absolute;pointer-events:none;z-index:3;filter:drop-shadow(0 4px 8px #000c)}
+#tux-unified-game .unified-meter img{width:100%;height:100%;object-fit:contain;display:block}
+#tux-unified-game .unified-toast{position:absolute;left:50%;top:calc(100% + 4px);font:24px Bangers,Impact,sans-serif;letter-spacing:2px;color:#ffe45c;text-shadow:0 0 12px #ff9d00,2px 2px 0 #000,-1px -1px 0 #000;white-space:nowrap;pointer-events:none;animation:tuxToast 1s ease-out forwards}
+@keyframes tuxToast{0%{opacity:0;transform:translate(-50%,8px) scale(.7)}15%{opacity:1;transform:translate(-50%,0) scale(1.15)}70%{opacity:1;transform:translate(-50%,-6px) scale(1)}100%{opacity:0;transform:translate(-50%,-22px) scale(1)}}
+
+/* Jogo Rápido: aviso de combos (efeito visual; não altera pontuação) */
+.tux-quick-toast{position:absolute;left:50%;top:58%;z-index:6;transform:translateX(-50%);font:34px Bangers,Impact,sans-serif;letter-spacing:3px;color:#ffe45c;text-shadow:0 0 14px #ff9d00,2px 2px 0 #000,-1px -1px 0 #000;pointer-events:none;white-space:nowrap;animation:tuxToast 1s ease-out forwards}
