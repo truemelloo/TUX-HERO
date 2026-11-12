@@ -11,9 +11,8 @@
   "version": "1.0.0",
   "description": "",
   "engines": {
-  "node": "6.10.1",
-  "npm": "3.10.10"
-  },
+  "node": "26.x"
+},
   "main": "webpack.config.js",
   "directories": {
   "test": "test"
