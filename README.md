@@ -1,4 +1,5 @@
- <div align="center">
+
+<div align="center">
 
 <img src="assets/tux-hero-logo.png" alt="Logo TUX HERO" width="420">
 
@@ -8,15 +9,38 @@
 
 **Um jogo musical de guitarra 3D desenvolvido para navegador, com desafios de ritmo, precisão, combos e multijogador local.**
 
-Projeto apresentado no **Workshop IBM SkillsBuild · IBM Bob (2026)**.
+🏆 **Vencedor da categoria "Melhores efeitos sonoros ou trilha sonora" — Workshop ADS + IBM Bob 2026.**
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Three.js](https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=three.js&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
 ### 🎮 [JOGAR TUX HERO ONLINE](https://tux-hero.vercel.app/)
 
-[🎸 Jogar agora](https://tux-hero.vercel.app/) · [⌨️ Controles](#️-controles) · [🛠️ Tecnologias](#️-tecnologias) · [💻 GitHub](https://github.com/truemelloo/TUX-HERO)
+[🎸 Jogar agora](https://tux-hero.vercel.app/) · [🏆 Premiação](#-premiação-e-reconhecimento) · [⌨️ Controles](#️-controles) · [🛠️ Tecnologias](#️-tecnologias)
 
 </div>
 
 ---
+
+## 🏆 Premiação e reconhecimento
+
+O **TUX HERO** foi vencedor da categoria **"Melhores efeitos sonoros ou trilha sonora"** no **Workshop ADS + IBM Bob 2026**.
+
+A premiação reconhece a experiência sonora do projeto, que combina música, efeitos sonoros e jogabilidade inspirada nos clássicos jogos de ritmo.
+
+Essa conquista representa um marco na minha trajetória como desenvolvedora, unindo programação, criatividade, design, música e inteligência artificial na construção de uma experiência interativa.
+
+| Premiação | Informações |
+|---|---|
+| 🏆 Resultado | Vencedor |
+| 🎵 Categoria | Melhores efeitos sonoros ou trilha sonora |
+| 📍 Evento | Workshop ADS + IBM Bob |
+| 📅 Ano | 2026 |
+| 🎮 Projeto | TUX HERO |
 
 ## 🎮 Jogue online
 
@@ -41,24 +65,31 @@ A experiência reúne guitarras 3D, menus temáticos, efeitos visuais, apresenta
 ## ✨ Funcionalidades
 
 ### 🎸 Jogo rápido
+
 Partidas musicais com cinco pistas de notas em perspectiva 3D, utilizando renderização Three.js.
 
 ### 🎵 Biblioteca de músicas
+
 Sistema de seleção musical com informações das faixas, artistas, dificuldades e charts associados.
 
 ### 📁 Importação de músicas
+
 Permite utilizar arquivos de áudio próprios, com recursos de análise e geração aproximada de notas. A sincronização pode variar conforme a música.
 
 ### 👥 Multijogador local
+
 Modo para dois jogadores no mesmo computador, com guitarras independentes, controles separados e pontuação individual.
 
 ### 🏆 Pontuação e combos
+
 Sistema de acertos, sequências, multiplicadores e resultados de desempenho.
 
 ### 🎥 Experiência audiovisual
+
 Abertura em vídeo, cenário de show, efeitos luminosos, identidade visual personalizada e interface em português.
 
 ### ⚙️ Menus e configurações
+
 Navegação por teclado, instruções, controles de áudio, pausa e opções de jogo.
 
 > Alguns recursos podem apresentar diferenças de comportamento conforme o navegador, o teclado e os arquivos musicais utilizados.
@@ -150,7 +181,7 @@ TUX-HERO/
 
 ## 🤖 Inteligência artificial no desenvolvimento
 
-O **TUX HERO** foi desenvolvido e personalizado com apoio de ferramentas de inteligência artificial, incluindo o **IBM Bob**, como parte das atividades relacionadas ao Workshop IBM SkillsBuild 2026.
+O **TUX HERO** foi desenvolvido e personalizado com apoio de ferramentas de inteligência artificial, incluindo o **IBM Bob**, como parte das atividades relacionadas ao Workshop ADS + IBM Bob 2026.
 
 A utilização da IA auxiliou no desenvolvimento, organização e aprimoramento do projeto, envolvendo:
 
@@ -177,15 +208,17 @@ Espaço reservado para imagens reais do projeto:
 
 As capturas poderão ser adicionadas futuramente à pasta `assets/prints/`.
 
-## 👩‍💻 Autoria e evento
+## 🎓 Autoria e evento
 
 **Projeto:** TUX HERO
 
 **Desenvolvimento e personalização:** Ana Clara de Souza Mello
 
-**Evento:** Workshop IBM SkillsBuild · IBM Bob
+**Evento:** Workshop ADS + IBM Bob — IBM SkillsBuild
 
 **Ano:** 2026
+
+**Premiação:** Vencedor da categoria "Melhores efeitos sonoros ou trilha sonora".
 
 **Repositório:** https://github.com/truemelloo/TUX-HERO
 
@@ -203,14 +236,32 @@ O projeto foi apresentado como parte de uma iniciativa educacional voltada à ap
 
 A identificação dos autores e artistas não substitui as autorizações necessárias para redistribuição pública de materiais protegidos.
 
+## 👩🏻‍💻 Desenvolvedora
+
+**Ana Clara Mello**
+
+Designer Gráfica & Desenvolvedora em formação.
+
+Estudante do curso Técnico em Desenvolvimento de Sistemas — ETEC.
+
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/truemelloo)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/anaclarasouzamello/)
+[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/truemelloo/)
+
 ---
 
 <div align="center">
 
 ### 🎸 ACERTE AS NOTAS. MANTENHA O COMBO. FAÇA O SHOW ACONTECER. 🐧
 
-**TUX HERO © 2026 — Desenvolvimento e personalização por Ana Clara de Souza Mello**
+🏆 **Projeto premiado — Workshop ADS + IBM Bob 2026**
+
+Desenvolvido com criatividade, tecnologia e dedicação. 💜
+
+**© 2026 Ana Clara Mello — TUX HERO**
 
 [🎮 JOGAR ONLINE](https://tux-hero.vercel.app/) · [💻 REPOSITÓRIO GITHUB](https://github.com/truemelloo/TUX-HERO)
+
+⭐ Se gostou do projeto, deixe uma estrela!
 
 </div>
